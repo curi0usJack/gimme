@@ -5,6 +5,7 @@ import json
 import random
 from pushover import Client
 
+
 def sendpush(message):
     apikey = "<your key>"
     userkey = "<user key>"
@@ -33,10 +34,20 @@ def search(url, searchstring, negativesearch):
                 found = True
 
         if found:
-            sendpush("PS5 Found: {}".format(url))
+            if hour > 5 and hour < 11:
+                sendpush("PS5 Found: {}".format(url))
     else:
         sendpush("Error connecting to PS5 site: {}".format(url))
 
+hour = datetime.datetime.now().hour
 
+# First URL
 url = "https://www.bestbuy.com/site/sony-playstation-5-console/6426149.p?skuId=6426149"
 search(url, "Sold Out</button>", True)
+
+# For subsequent runs, add more urls and calls to search()
+# url = "https://www.bestbuy.com/site/sony-playstation-5-console/6426149.p?skuId=6426149"
+# search(url, "Sold Out</button>", True)
+
+
+
