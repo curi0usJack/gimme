@@ -39,4 +39,4 @@ def search(url, searchstring, negativesearch):
 
 
 url = "https://www.bestbuy.com/site/sony-playstation-5-console/6426149.p?skuId=6426149"
-search(url, "Sold Out", False)
+search(url, "Sold Out</button>", True)
